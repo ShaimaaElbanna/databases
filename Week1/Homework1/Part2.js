@@ -5,9 +5,8 @@ let app = express();
 
 let connection = mysql.createConnection({
   host: "localhost",
-  user: "foo",
-  password: "bar",
-  database: "new_world"
+  user: "root",
+  password: "Jopa_2000s"
 });
 
 connection.connect(err => {
@@ -23,7 +22,7 @@ app.get("/query/:condition", (req, res) => {
   let query = `${req.params.condition}`;
   connection.query(query, (err, result) => {
     if (err) throw err;
-    //console.log(result);
+    console.log(result);
     res.send(JSON.stringify({ result }));
   });
 });

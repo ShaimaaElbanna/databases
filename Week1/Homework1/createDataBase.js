@@ -2,15 +2,14 @@ let mysql = require('mysql');
 
 let Connection = mysql.createConnection({
   host: 'localhost',
-  user: 'shaimaa',
-  password: 'hyf_database',
-  database: 'newWorld'
+  user: 'root',
+  password: 'Jopa_2000s'
 });
 
 Connection.connect(function(err) {
   if (err) throw err.message;
   Connection.query(
-      'Create Database',
+      'Create Database if not exists test',
       (err,result)=>{
           if (err) throw err.message;
           console.log('dataBase has been created sucssefuly')

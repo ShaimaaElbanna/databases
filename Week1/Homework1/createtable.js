@@ -2,24 +2,11 @@ let mysql = require('mysql');
 
 let Connection = mysql.createConnection({
   host: 'localhost',
-  user: 'shaimaa',
-  password: 'hyf_database',
-  database: 'newWorld'
+  user: 'root',
+  password: 'Jopa_2000s',
+  database: 'test'
 });
 
-Connection.connect(function(err) {
-  if (err) throw err.message;
-  Connection.query(
-      'Create Database',
-      (err,result)=>{
-          if (err) throw err.message;
-          console.log('dataBase has been created sucssefuly')
-      }
-  );
-  Connection.end(function(err){
-      if (err) throw err.message
-  });
-});
 //2. create a table country
 //CREATE TABLE table_name (column_name column_type);
 let countriesTable= "CREATE TABLE if not exists countries (Name CHAR(52), Continent CHAR(52), Population INT(11))";
@@ -29,14 +16,13 @@ Connection.query(countriesTable, (err, res) => {
 }); 
 
 //3. create a table city 
-
 let cityTable= "CREATE TABLE if not exists city (Name CHAR(52), Continent CHAR(52), Population INT(11))";
 Connection.query(cityTable, (err, res) => {
   if (err) throw err;
   console.log("city table was created successfuly");
 }); 
 
-//4. Insert 10-20 rows in each table with relevant fields. 
+/*//4. Insert 10-20 rows in each table with relevant fields. 
 
 let countriesData = [
     ["Sweden", "Europ", 9900000],
@@ -72,4 +58,4 @@ Connection.query(cityRows,[citiesData], err =>{
 
 Connection.end(err =>{
     if (err) throw err.message
-})
+})*/
